@@ -41,15 +41,21 @@ function App() {
             <button className='bg-blue-500 px-4 py-2 text-white' type='submit'>Add</button>
           </div>
         </form>
-        <div className='mt-4'>
+        <div className='mt-4 h-[350px] overflow-scroll'>
           <ul className='flex flex-col gap-5'>
-            <li className='flex justify-start w-full items-center gap-3'>
-              <div className='w-[90%] flex gap-4 items-center'>
-                <input type="checkbox" className='w-4 h-4' />
-                <label className={`w-[90%] text-lg font-bold`} htmlFor={`myInput`}>This Is Title</label>
-              </div>
-              <button className='bg-blue-500 px-4 py-2 flex justify-end'>&#9876;</button>
-            </li>
+            {
+              data && data.todos.map((data, index) => {
+                return(
+                  <li className='flex justify-start w-full items-center gap-3' key={index}>
+                    <div className='w-[90%] flex gap-4 items-center'>
+                      <input type="checkbox" className='w-4 h-4' />
+                      <label className={`w-[90%] text-lg font-bold`} htmlFor={`myInput`}>{data.title}</label>
+                    </div>
+                    <button className='bg-blue-500 px-4 py-2 flex justify-end'>&#9876;</button>
+                  </li>
+                )
+              })
+            }
           </ul>
         </div>
       </div>
